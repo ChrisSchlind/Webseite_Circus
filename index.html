@@ -80,6 +80,8 @@
                 background-image: url('background.jpg');
                 background-size: cover;
                 background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
             }
         </style>
 
@@ -137,7 +139,13 @@
     <script>
         function openLink(event) {
             event.preventDefault(); // Verhindert das Standard-Formularverhalten
-            window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ?si=FDmRII0PPAic5Ex1', '_blank'); // Öffnet den Link in einem neuen Tab
+            const newWindow = window.open('https://www.youtube.com/watch?v=cvh0nX08nRw', '_blank'); // Öffnet den Link in einem neuen Tab
+            newWindow.onload = function() {
+                newWindow.document.querySelector('video').volume = 1.0; // Setzt die Lautstärke auf 100%
+                if (typeof newWindow.navigator.mediaSession !== 'undefined') {
+                    newWindow.navigator.mediaSession.setPositionState({ volume: 1.0 }); // Setzt die Lautstärke des Handys auf 100%
+                }
+            };
         }
     </script>
 
