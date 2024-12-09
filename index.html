@@ -86,7 +86,7 @@
         <section id="contact">
             <h2>Kontakt</h2>
             <p>Ihr möchtet uns buchen oder habt Fragen? Meldet euch bei uns!</p>
-            <form>
+            <form onsubmit="openLink(event)">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required autocomplete="name">
@@ -107,8 +107,19 @@
         </section>
     </main>
 
+    <script>
+        function openLink(event) {
+            event.preventDefault(); // Verhindert das Standard-Formularverhalten
+            window.open('https://youtu.be/dQw4w9WgXcQ?si=cz93NbLkO0FiJf-w', '_blank'); // Öffnet den Link in einem neuen Tab
+        }
+    </script>
+
     <footer>
         <p>&copy; 2024 Zirkus Martini. Alle Rechte vorbehalten.</p>
+        <p>Gesponsert von:</p>
+        <a href="https://www.gutschild.de/" target="_blank">
+            <img src="gutschild-logo.png" alt="Gutschild Logo" style="width: 300px; height: auto;">
+        </a>
     </footer>
 </body>
 </html>
